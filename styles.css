@@ -57,21 +57,57 @@ img {
   margin: 0 auto;
 }
 
-.site-header a {
+.site-header a,
+.site-header button.nav-link {
   text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  align-items: baseline;
+  gap: 1.15rem;
 }
 
 .wordmark {
   font-family: var(--font-display);
   font-size: 1.35rem;
+  font-weight: 400;
   letter-spacing: 0.01em;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  line-height: inherit;
+}
+
+button.wordmark {
+  cursor: pointer;
+}
+
+button.wordmark:hover,
+button.wordmark:focus-visible {
+  /* Cycle control: pointer only — no color/opacity hover */
+  opacity: inherit;
+  color: inherit;
 }
 
 .nav-link {
   font-size: 0.95rem;
+  font-weight: 400;
   letter-spacing: 0.04em;
   text-transform: lowercase;
   opacity: 0.85;
+  background: none;
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  line-height: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+button.nav-link {
+  font-weight: 400;
 }
 
 .nav-link:hover {
@@ -203,6 +239,188 @@ img {
   border-color: var(--deep-red);
 }
 
+/* —— Experimental: right Memphis scroll band —— */
+/* Scoped to .exp-home; remove that class on <body> to disable. */
+
+.exp-home {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+}
+
+/*
+  Full-width top nav stays in its original place.
+  Header Wallfellow + pieces: solid cobalt.
+*/
+.exp-home .site-header {
+  position: relative;
+  z-index: 2;
+  mix-blend-mode: normal;
+  color: #213293;
+}
+
+.exp-home .site-header .wordmark,
+.exp-home .site-header .nav-link {
+  color: #213293;
+}
+
+.exp-home .site-header .nav-link:hover {
+  color: #213293;
+  opacity: 1;
+}
+
+.exp-home .site-header .wordmark:hover,
+.exp-home .site-header .wordmark:focus-visible,
+.exp-home .site-header .wordmark[aria-pressed="true"] {
+  color: #213293;
+  opacity: inherit;
+}
+
+.exp-home .hero {
+  position: relative;
+  z-index: 2;
+}
+
+.exp-home .home-footer {
+  /* No Etsy peek/link in this experiment */
+  display: none;
+}
+
+.pattern-band {
+  display: none;
+}
+
+.exp-home .pattern-band {
+  display: block;
+  position: absolute;
+  inset: 0 0 0 33.333%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.85s ease, visibility 0.85s ease;
+  /* Left soft edge + strong fade-out toward top for header readability */
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, #000 16%, #000 100%),
+    linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 4.5rem,
+      #000 11rem,
+      #000 100%
+    );
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0%, #000 16%, #000 100%),
+    linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 4.5rem,
+      #000 11rem,
+      #000 100%
+    );
+  mask-composite: intersect;
+}
+
+/* Band only shows for active pattern modes — off clears it completely */
+.exp-home[data-pattern="memphis"] .pattern-band,
+.exp-home[data-pattern="graph"] .pattern-band,
+.exp-home[data-pattern="dots"] .pattern-band {
+  opacity: 1;
+  visibility: visible;
+}
+
+.pattern-band__layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.85s ease;
+}
+
+.exp-home[data-pattern="memphis"] .pattern-band__layer--memphis,
+.exp-home[data-pattern="graph"] .pattern-band__layer--graph,
+.exp-home[data-pattern="dots"] .pattern-band__layer--dots {
+  opacity: 1;
+}
+
+.exp-home[data-pattern="off"] .pattern-band__track {
+  animation: none !important;
+}
+
+/* Duplicated strip: two identical tiles; animate exactly -50% for a seamless loop */
+.pattern-band__track {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  font-size: 0;
+  will-change: transform;
+}
+
+.pattern-band__tile {
+  flex: 0 0 auto;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.pattern-band__tile--memphis {
+  /* SVG 480×480 — 6 equal rows; seam = interior row spacing */
+  aspect-ratio: 1 / 1;
+  background-image: url("assets/brand/memphis-squiggle-cobalt.svg");
+  background-size: 100% 100%;
+  opacity: 0.92;
+}
+
+.pattern-band__tile--graph {
+  /* Half previous cell size: tile at 50% and repeat */
+  aspect-ratio: 1 / 1;
+  background-image: url("assets/brand/graph-paper-cobalt.svg");
+  background-repeat: repeat;
+  background-size: 50% 50%;
+  opacity: 1;
+}
+
+.pattern-band__tile--dots {
+  aspect-ratio: 1 / 1;
+  background-image: url("assets/brand/dot-grid-cobalt.svg");
+  background-repeat: repeat;
+  background-size: 50% 50%;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .exp-home .pattern-band__track {
+    animation: pattern-credits 72s linear infinite;
+  }
+
+  .exp-home .pattern-band__track--graph {
+    animation-duration: 56s;
+  }
+
+  .exp-home .pattern-band__track--dots {
+    animation-duration: 64s;
+  }
+}
+
+@keyframes pattern-credits {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
 @keyframes rise {
   from {
     transform: translateY(0.7rem);
@@ -218,6 +436,14 @@ img {
   .cta,
   .cta::after {
     transition: none;
+  }
+
+  .pattern-band__layer {
+    transition: none;
+  }
+
+  .exp-home .pattern-band__track {
+    animation: none !important;
   }
 }
 
