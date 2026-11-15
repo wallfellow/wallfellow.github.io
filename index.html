@@ -16,7 +16,16 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="home">
+  <!--
+    Experimental homepage flourishes (HU-45):
+    Toggle off by removing class "exp-home" from <body>
+    (hides the right Memphis scroll band + lower-left Etsy page fold).
+  -->
+  <body class="home exp-home">
+    <div class="memphis-band" aria-hidden="true">
+      <div class="memphis-band__scroll"></div>
+    </div>
+
     <header class="site-header">
       <span class="wordmark" aria-current="page">Wallfellow</span>
       <a class="nav-link" href="pieces/">Pieces</a>
@@ -34,5 +43,19 @@
         >Etsy · Wallfellow Store</a
       >
     </footer>
+
+    <a
+      class="etsy-fold"
+      href="https://www.etsy.com/shop/WallfellowStore"
+      rel="noopener noreferrer"
+      aria-label="Shop Wallfellow on Etsy"
+    >
+      <span class="etsy-fold__under">
+        <span class="etsy-fold__label">Etsy</span>
+        <span class="etsy-fold__shop">Wallfellow Store</span>
+        <span class="etsy-fold__hint">Shop the wall</span>
+      </span>
+      <span class="etsy-fold__flap" aria-hidden="true"></span>
+    </a>
   </body>
 </html>

@@ -192,6 +192,12 @@ img {
   color: color-mix(in srgb, var(--cobalt) 70%, black);
 }
 
+.exp-home .home-footer {
+  /* Clear the fixed Etsy corner fold */
+  padding-left: calc(var(--space) + 5.5rem);
+  padding-bottom: 1.9rem;
+}
+
 .home-footer a {
   color: inherit;
   text-decoration: none;
@@ -201,6 +207,218 @@ img {
 .home-footer a:hover {
   color: var(--deep-red);
   border-color: var(--deep-red);
+}
+
+/* —— Experimental: right Memphis scroll + Etsy corner fold —— */
+/* Scoped to .exp-home; remove that class on <body> to disable. */
+
+.exp-home {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+}
+
+.exp-home .site-header,
+.exp-home .hero,
+.exp-home .home-footer {
+  position: relative;
+  z-index: 2;
+}
+
+.exp-home .hero {
+  max-width: min(36rem, 38vw);
+}
+
+@media (max-width: 720px) {
+  .exp-home .hero {
+    max-width: 48rem;
+  }
+}
+
+.memphis-band {
+  display: none;
+}
+
+.exp-home .memphis-band {
+  display: block;
+  position: absolute;
+  inset: 0 0 0 33.333%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 14%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 14%,
+    #000 100%
+  );
+}
+
+.memphis-band__scroll {
+  position: absolute;
+  inset: -50% 0;
+  background-image: url("assets/brand/memphis-squiggle-cobalt.svg");
+  background-repeat: repeat;
+  background-size: 15rem 20rem;
+  background-position: 0 0;
+  opacity: 0.92;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .exp-home .memphis-band__scroll {
+    animation: memphis-credits 48s linear infinite;
+  }
+}
+
+@keyframes memphis-credits {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-20rem); /* one tile height (background-size y) */
+  }
+}
+
+/* Lower-left page corner fold → Etsy */
+.etsy-fold {
+  display: none;
+}
+
+.exp-home .etsy-fold {
+  --fold: 5.75rem;
+  display: block;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+  width: var(--fold);
+  height: var(--fold);
+  text-decoration: none;
+  color: var(--cobalt);
+  perspective: 480px;
+}
+
+.etsy-fold__under {
+  position: absolute;
+  inset: 0;
+  background: var(--cream);
+  /* Larger reveal than the flap so a cream peek is always visible */
+  -webkit-clip-path: polygon(0 22%, 0 100%, 78% 100%);
+  clip-path: polygon(0 22%, 0 100%, 78% 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 0 0.55rem 0.65rem;
+  box-shadow: inset -1px -1px 0 color-mix(in srgb, var(--cobalt) 12%, transparent);
+  transition: clip-path 0.35s ease;
+}
+
+.etsy-fold__label {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--cobalt) 70%, black);
+  line-height: 1.2;
+}
+
+.etsy-fold__shop {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--cobalt);
+}
+
+.etsy-fold__hint {
+  margin-top: 0.15rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--cobalt) 55%, transparent);
+}
+
+.etsy-fold__flap {
+  position: absolute;
+  inset: 0;
+  /* Smaller than under — leaves a cream Etsy peek along the diagonal */
+  -webkit-clip-path: polygon(0% 42%, 58% 100%, 0% 100%);
+  clip-path: polygon(0% 42%, 58% 100%, 0% 100%);
+  transform-origin: 0% 100%;
+  transition: transform 0.35s ease;
+  box-shadow:
+    2px -2px 8px color-mix(in srgb, var(--ink) 18%, transparent),
+    inset 1px 1px 0 color-mix(in srgb, white 35%, transparent);
+  /* crease + mustard paper face (underside of the peel) */
+  background:
+    linear-gradient(
+      135deg,
+      transparent 47%,
+      color-mix(in srgb, var(--cobalt) 20%, transparent) 49%,
+      color-mix(in srgb, var(--cobalt) 12%, transparent) 51%,
+      transparent 53%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--mustard) 75%, white) 0%,
+      var(--mustard) 45%,
+      color-mix(in srgb, var(--mustard) 70%, var(--cobalt)) 100%
+    );
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .exp-home .etsy-fold__flap {
+    animation: fold-nudge 3.6s ease-in-out infinite;
+  }
+
+  .exp-home .etsy-fold:hover .etsy-fold__flap,
+  .exp-home .etsy-fold:focus-visible .etsy-fold__flap {
+    animation: none;
+    transform: rotateX(18deg) rotateY(-6deg) translate(2px, -4px) scale(0.96);
+  }
+}
+
+.etsy-fold:hover .etsy-fold__under,
+.etsy-fold:focus-visible .etsy-fold__under {
+  -webkit-clip-path: polygon(0 12%, 0 100%, 88% 100%);
+  clip-path: polygon(0 12%, 0 100%, 88% 100%);
+}
+
+.etsy-fold:focus-visible {
+  outline: 2px solid var(--deep-red);
+  outline-offset: 3px;
+}
+
+@keyframes fold-nudge {
+  0%,
+  100% {
+    transform: rotateX(0deg) translate(0, 0);
+  }
+  40% {
+    transform: rotateX(10deg) rotateY(-4deg) translate(1px, -3px);
+  }
+  55% {
+    transform: rotateX(6deg) translate(0.5px, -1.5px);
+  }
+}
+
+@media (max-width: 520px) {
+  .exp-home .etsy-fold {
+    --fold: 4.75rem;
+  }
+
+  .etsy-fold__shop {
+    font-size: 0.68rem;
+  }
+
+  .etsy-fold__hint {
+    display: none;
+  }
 }
 
 @keyframes rise {
@@ -218,6 +436,11 @@ img {
   .cta,
   .cta::after {
     transition: none;
+  }
+
+  .exp-home .memphis-band__scroll,
+  .exp-home .etsy-fold__flap {
+    animation: none !important;
   }
 }
 
