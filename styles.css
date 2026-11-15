@@ -250,13 +250,15 @@ button.nav-link {
 
 /*
   Full-width top nav stays in its original place.
-  Header Wallfellow + pieces: solid cobalt.
+  Header Wallfellow + pieces: solid cobalt on mustard bar
+  that covers the scrolling pattern behind the top strip.
 */
 .exp-home .site-header {
   position: relative;
   z-index: 2;
   mix-blend-mode: normal;
   color: #213293;
+  background: #fbb323;
 }
 
 .exp-home .site-header .wordmark,
