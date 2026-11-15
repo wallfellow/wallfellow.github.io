@@ -300,18 +300,27 @@ button.nav-link {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.85s ease, visibility 0.85s ease;
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    #000 16%,
-    #000 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    #000 16%,
-    #000 100%
-  );
+  /* Left soft edge + strong fade-out toward top for header readability */
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, #000 16%, #000 100%),
+    linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 4.5rem,
+      #000 11rem,
+      #000 100%
+    );
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0%, #000 16%, #000 100%),
+    linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 4.5rem,
+      #000 11rem,
+      #000 100%
+    );
+  mask-composite: intersect;
 }
 
 /* Band only shows for active pattern modes — off clears it completely */
