@@ -250,30 +250,29 @@ button.nav-link {
 
 /*
   Full-width top nav stays in its original place.
-  White + difference → cobalt-ish on mustard, mustard-ish on cobalt
-  (readable where text crosses the scrolling shapes).
+  Header Wallfellow + pieces: solid cobalt.
 */
 .exp-home .site-header {
   position: relative;
   z-index: 2;
-  mix-blend-mode: difference;
-  color: #fff;
+  mix-blend-mode: normal;
+  color: #213293;
 }
 
 .exp-home .site-header .wordmark,
 .exp-home .site-header .nav-link {
-  color: #fff;
+  color: #213293;
 }
 
 .exp-home .site-header .nav-link:hover {
-  color: #fff;
+  color: #213293;
   opacity: 1;
 }
 
 .exp-home .site-header .wordmark:hover,
 .exp-home .site-header .wordmark:focus-visible,
 .exp-home .site-header .wordmark[aria-pressed="true"] {
-  color: #fff;
+  color: #213293;
   opacity: inherit;
 }
 
