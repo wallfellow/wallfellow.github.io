@@ -71,7 +71,24 @@ img {
 .wordmark {
   font-family: var(--font-display);
   font-size: 1.35rem;
+  font-weight: 400;
   letter-spacing: 0.01em;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  line-height: inherit;
+}
+
+button.wordmark {
+  cursor: pointer;
+}
+
+button.wordmark:hover,
+button.wordmark:focus-visible {
+  /* Cycle control: pointer only — no color/opacity hover */
+  opacity: inherit;
+  color: inherit;
 }
 
 .nav-link {
@@ -253,10 +270,11 @@ button.nav-link {
   opacity: 1;
 }
 
-.exp-home .site-header .nav-link--decor[aria-pressed="true"] {
+.exp-home .site-header .wordmark:hover,
+.exp-home .site-header .wordmark:focus-visible,
+.exp-home .site-header .wordmark[aria-pressed="true"] {
   color: #fff;
-  opacity: 1;
-  font-weight: 400;
+  opacity: inherit;
 }
 
 .exp-home .hero {

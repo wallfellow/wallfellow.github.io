@@ -20,8 +20,8 @@
     Experimental homepage flourish (HU-45):
     Toggle off by removing class "exp-home" from <body>
     (hides the right scroll band; restores footer).
-    Decor cycles: off → Memphis → graph paper → dot grid → off (fade).
-    Default is off (no scroll band). Home / Pieces restore Memphis.
+    Header wordmark cycles: off → Memphis → graph → dots → off.
+    Default is off (no scroll band).
   -->
   <body class="home exp-home" data-pattern="off">
     <div class="pattern-band" aria-hidden="true">
@@ -46,18 +46,17 @@
     </div>
 
     <header class="site-header">
-      <a class="wordmark" href="./" data-pattern-set="memphis">Wallfellow</a>
+      <button
+        type="button"
+        class="wordmark wordmark--pattern-cycle"
+        data-pattern-cycle
+        aria-pressed="false"
+        aria-label="Cycle page decoration"
+      >
+        Wallfellow
+      </button>
       <nav class="site-nav" aria-label="Primary">
-        <a class="nav-link" href="pieces/" data-pattern-set="memphis">Pieces</a>
-        <button
-          type="button"
-          class="nav-link nav-link--decor"
-          data-pattern-cycle
-          aria-pressed="false"
-          aria-label="Cycle decor pattern"
-        >
-          Decor
-        </button>
+        <a class="nav-link" href="pieces/">Pieces</a>
       </nav>
     </header>
 
@@ -65,7 +64,7 @@
       <h1 class="brand">Wallfellow</h1>
       <p class="tagline">Hang it up</p>
       <p class="lede">Framed originals and quiet pieces for the wall.</p>
-      <a class="cta" href="pieces/" data-pattern-set="memphis">See the pieces</a>
+      <a class="cta" href="pieces/">See the pieces</a>
     </main>
 
     <footer class="home-footer">
