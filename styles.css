@@ -207,25 +207,48 @@ img {
 /* Scoped to .exp-home; remove that class on <body> to disable. */
 
 .exp-home {
+  --content-col: min(22rem, 36vw);
   position: relative;
   isolation: isolate;
   overflow-x: clip;
 }
 
-.exp-home .site-header,
-.exp-home .hero,
-.exp-home .home-footer {
+/* Clear left content column — nav + brand never sit under the pattern */
+.exp-home .site-header {
   position: relative;
   z-index: 2;
+  max-width: var(--content-col);
+  width: 100%;
+  margin-inline: 0;
+  padding-inline: var(--space);
 }
 
 .exp-home .hero {
-  max-width: min(36rem, 38vw);
+  position: relative;
+  z-index: 2;
+  max-width: var(--content-col);
+}
+
+.exp-home .home-footer {
+  /* No Etsy peek/link in this experiment */
+  display: none;
 }
 
 @media (max-width: 720px) {
-  .exp-home .hero {
-    max-width: 48rem;
+  .exp-home {
+    --content-col: min(22rem, 92vw);
+  }
+
+  /* On small screens, park the band below the hero so text stays clear */
+  .exp-home .memphis-band {
+    inset: auto 0 0 0;
+    height: 42vh;
+    -webkit-mask-image: linear-gradient(
+      to top,
+      #000 55%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(to top, #000 55%, transparent 100%);
   }
 }
 
@@ -236,49 +259,57 @@ img {
 .exp-home .memphis-band {
   display: block;
   position: absolute;
-  inset: 0 0 0 33.333%;
+  /* Start past the content column so shapes never cover brand/nav/CTA */
+  inset: 0 0 0 max(38%, calc(var(--content-col) + var(--space) + 1.5rem));
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
-  container-type: size;
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
-    #000 14%,
+    #000 18%,
     #000 100%
   );
   mask-image: linear-gradient(
     to right,
     transparent 0%,
-    #000 14%,
+    #000 18%,
     #000 100%
   );
 }
 
-.memphis-band__scroll {
-  /* One tile spans band width (SVG 480×640 → height = width × 4/3) */
-  --memphis-tile-h: calc(100cqw * 640 / 480);
-  position: absolute;
-  inset: -50% 0;
+/* Duplicated strip: two identical tiles; animate exactly -50% for a seamless loop */
+.memphis-band__track {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  will-change: transform;
+}
+
+.memphis-band__tile {
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 480 / 720;
   background-image: url("assets/brand/memphis-squiggle-cobalt.svg");
-  background-repeat: repeat-y;
-  background-size: 100cqw var(--memphis-tile-h);
-  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
   opacity: 0.92;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .exp-home .memphis-band__scroll {
-    animation: memphis-credits 64s linear infinite;
+  .exp-home .memphis-band__track {
+    animation: memphis-credits 72s linear infinite;
   }
 }
 
 @keyframes memphis-credits {
   from {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translateY(calc(-1 * var(--memphis-tile-h)));
+    /* One tile = 50% of the duplicated track */
+    transform: translate3d(0, -50%, 0);
   }
 }
 
@@ -299,7 +330,7 @@ img {
     transition: none;
   }
 
-  .exp-home .memphis-band__scroll {
+  .exp-home .memphis-band__track {
     animation: none !important;
   }
 }

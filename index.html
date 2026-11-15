@@ -19,11 +19,14 @@
   <!--
     Experimental homepage flourish (HU-45):
     Toggle off by removing class "exp-home" from <body>
-    (hides the right Memphis scroll band).
+    (hides the right Memphis scroll band; restores footer).
   -->
   <body class="home exp-home">
     <div class="memphis-band" aria-hidden="true">
-      <div class="memphis-band__scroll"></div>
+      <div class="memphis-band__track">
+        <div class="memphis-band__tile"></div>
+        <div class="memphis-band__tile"></div>
+      </div>
     </div>
 
     <header class="site-header">
