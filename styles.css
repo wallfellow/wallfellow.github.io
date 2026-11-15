@@ -290,8 +290,8 @@ img {
   margin: 0;
   padding: 0;
   border: 0;
-  /* Matches SVG 480×560 — edge padding tuned so seam ≈ interior spacing */
-  aspect-ratio: 480 / 560;
+  /* Matches SVG 480×540 — edge padding ~12px so seam ≈ interior spacing */
+  aspect-ratio: 480 / 540;
   background-image: url("assets/brand/memphis-squiggle-cobalt.svg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
