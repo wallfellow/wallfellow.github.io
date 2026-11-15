@@ -356,7 +356,10 @@ button.nav-link {
   animation: none !important;
 }
 
-/* Duplicated strip: two identical tiles; animate exactly -50% for a seamless loop */
+/* Four identical tiles. The loop shifts -50% (two tiles).
+   One tile is only as tall as the band is wide, so two tiles — one half of
+   the loop — stay taller than any square or landscape viewport and the
+   shapes never scroll off to leave a mustard gap. */
 .pattern-band__track {
   display: flex;
   flex-direction: column;
@@ -407,16 +410,17 @@ button.nav-link {
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  /* Twice the old two-tile durations: the loop now travels two tiles, same speed. */
   .exp-home .pattern-band__track {
-    animation: pattern-credits 72s linear infinite;
+    animation: pattern-credits 144s linear infinite;
   }
 
   .exp-home .pattern-band__track--graph {
-    animation-duration: 56s;
+    animation-duration: 112s;
   }
 
   .exp-home .pattern-band__track--dots {
-    animation-duration: 64s;
+    animation-duration: 128s;
   }
 }
 
