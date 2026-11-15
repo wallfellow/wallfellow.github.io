@@ -57,8 +57,15 @@ img {
   margin: 0 auto;
 }
 
-.site-header a {
+.site-header a,
+.site-header button.nav-link {
   text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  align-items: baseline;
+  gap: 1.15rem;
 }
 
 .wordmark {
@@ -72,6 +79,12 @@ img {
   letter-spacing: 0.04em;
   text-transform: lowercase;
   opacity: 0.85;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
 }
 
 .nav-link:hover {
@@ -229,7 +242,8 @@ img {
   color: #fff;
 }
 
-.exp-home .site-header .nav-link:hover {
+.exp-home .site-header .nav-link:hover,
+.exp-home .site-header .nav-link[aria-pressed="true"] {
   color: #fff;
   opacity: 1;
 }
@@ -244,11 +258,11 @@ img {
   display: none;
 }
 
-.memphis-band {
+.pattern-band {
   display: none;
 }
 
-.exp-home .memphis-band {
+.exp-home .pattern-band {
   display: block;
   position: absolute;
   inset: 0 0 0 33.333%;
@@ -269,8 +283,20 @@ img {
   );
 }
 
+.pattern-band__layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.85s ease;
+}
+
+.exp-home[data-pattern="memphis"] .pattern-band__layer--memphis,
+.exp-home[data-pattern="graph"] .pattern-band__layer--graph {
+  opacity: 1;
+}
+
 /* Duplicated strip: two identical tiles; animate exactly -50% for a seamless loop */
-.memphis-band__track {
+.pattern-band__track {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -283,34 +309,48 @@ img {
   will-change: transform;
 }
 
-.memphis-band__tile {
+.pattern-band__tile {
   flex: 0 0 auto;
   display: block;
   width: 100%;
   margin: 0;
   padding: 0;
   border: 0;
-  /* Matches SVG 480×540 — edge padding ~12px so seam ≈ interior spacing */
-  aspect-ratio: 480 / 540;
-  background-image: url("assets/brand/memphis-squiggle-cobalt.svg");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
   background-position: 0 0;
+}
+
+.pattern-band__tile--memphis {
+  /* SVG 480×480 — 6 equal rows; seam = interior row spacing */
+  aspect-ratio: 1 / 1;
+  background-image: url("assets/brand/memphis-squiggle-cobalt.svg");
+  background-size: 100% 100%;
   opacity: 0.92;
 }
 
+.pattern-band__tile--graph {
+  /* SVG 200×200 seamless graph paper; one tile = band width */
+  aspect-ratio: 1 / 1;
+  background-image: url("assets/brand/graph-paper-cobalt.svg");
+  background-size: 100% 100%;
+  opacity: 0.85;
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  .exp-home .memphis-band__track {
-    animation: memphis-credits 72s linear infinite;
+  .exp-home .pattern-band__track {
+    animation: pattern-credits 72s linear infinite;
+  }
+
+  .exp-home .pattern-band__track--graph {
+    animation-duration: 56s;
   }
 }
 
-@keyframes memphis-credits {
+@keyframes pattern-credits {
   from {
     transform: translate3d(0, 0, 0);
   }
   to {
-    /* One tile = 50% of the duplicated track */
     transform: translate3d(0, -50%, 0);
   }
 }
@@ -332,7 +372,11 @@ img {
     transition: none;
   }
 
-  .exp-home .memphis-band__track {
+  .pattern-band__layer {
+    transition: none;
+  }
+
+  .exp-home .pattern-band__track {
     animation: none !important;
   }
 }

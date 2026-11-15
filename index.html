@@ -19,26 +19,45 @@
   <!--
     Experimental homepage flourish (HU-45):
     Toggle off by removing class "exp-home" from <body>
-    (hides the right Memphis scroll band; restores footer).
+    (hides the right scroll band; restores footer).
+    Decor nav fades the band between Memphis and graph paper.
   -->
-  <body class="home exp-home">
-    <div class="memphis-band" aria-hidden="true">
-      <div class="memphis-band__track">
-        <div class="memphis-band__tile"></div>
-        <div class="memphis-band__tile"></div>
+  <body class="home exp-home" data-pattern="memphis">
+    <div class="pattern-band" aria-hidden="true">
+      <div class="pattern-band__layer pattern-band__layer--memphis">
+        <div class="pattern-band__track">
+          <div class="pattern-band__tile pattern-band__tile--memphis"></div>
+          <div class="pattern-band__tile pattern-band__tile--memphis"></div>
+        </div>
+      </div>
+      <div class="pattern-band__layer pattern-band__layer--graph">
+        <div class="pattern-band__track pattern-band__track--graph">
+          <div class="pattern-band__tile pattern-band__tile--graph"></div>
+          <div class="pattern-band__tile pattern-band__tile--graph"></div>
+        </div>
       </div>
     </div>
 
     <header class="site-header">
-      <span class="wordmark" aria-current="page">Wallfellow</span>
-      <a class="nav-link" href="pieces/">Pieces</a>
+      <a class="wordmark" href="./" data-pattern-set="memphis">Wallfellow</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="nav-link" href="pieces/" data-pattern-set="memphis">Pieces</a>
+        <button
+          type="button"
+          class="nav-link nav-link--decor"
+          data-pattern-set="graph"
+          aria-pressed="false"
+        >
+          Decor
+        </button>
+      </nav>
     </header>
 
     <main class="hero">
       <h1 class="brand">Wallfellow</h1>
       <p class="tagline">Hang it up</p>
       <p class="lede">Framed originals and quiet pieces for the wall.</p>
-      <a class="cta" href="pieces/">See the pieces</a>
+      <a class="cta" href="pieces/" data-pattern-set="memphis">See the pieces</a>
     </main>
 
     <footer class="home-footer">
@@ -46,5 +65,7 @@
         >Etsy · Wallfellow Store</a
       >
     </footer>
+
+    <script src="home-pattern.js" defer></script>
   </body>
 </html>

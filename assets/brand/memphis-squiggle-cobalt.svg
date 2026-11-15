@@ -1,78 +1,79 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="540" viewBox="0 0 480 540" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480" fill="none">
   <!--
     Seamless Memphis tile — cobalt #213293 on transparent.
-    Edge clearance ~12px top/bottom so joined seam ≈ ~24px (matches denser interior gaps).
+    6 equally spaced rows (period 80). Centers at 40,120,200,280,360,440:
+    edge clearance = half period, so the tiled seam equals interior row spacing.
   -->
-  <g transform="translate(5 5)" opacity="0.28" fill="#0f1848" stroke="#0f1848">
-    <circle cx="70" cy="24" r="16" stroke="none"/>
-    <rect x="158" y="10" width="28" height="28" transform="rotate(11 172 24)" stroke="none"/>
-    <path d="M268 14c8 14 26 11 31 28s-13 22-6 36" stroke-width="10" stroke-linecap="round" fill="none"/>
-    <path d="M388 16l13 15-13 15 13 15" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-
-    <path d="M44 92h24v24" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <rect x="148" y="104" width="8" height="24" transform="rotate(-16 152 116)" stroke="none"/>
-    <circle cx="236" cy="110" r="8" stroke="none"/>
-    <rect x="316" y="94" width="28" height="28" transform="rotate(-8 330 108)" stroke="none"/>
-    <path d="M408 90c-5 13 9 17 6 31" stroke-width="9" stroke-linecap="round" fill="none"/>
-
-    <path d="M84 174l13 16-13 16 13 16" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <circle cx="186" cy="192" r="16" stroke="none"/>
-    <path d="M276 172h24v24" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <rect x="376" y="186" width="8" height="24" transform="rotate(14 380 198)" stroke="none"/>
-
-    <rect x="48" y="262" width="26" height="26" transform="rotate(14 61 275)" stroke="none"/>
-    <path d="M140 252c10 14 28 10 32 28s-14 20-8 36" stroke-width="10" stroke-linecap="round" fill="none"/>
-    <circle cx="266" cy="272" r="7" stroke="none"/>
-    <path d="M336 250l15 18-15 18 15 18" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <circle cx="416" cy="262" r="13" stroke="none"/>
-
-    <path d="M52 348h24v24" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <rect x="146" y="364" width="8" height="22" transform="rotate(18 150 375)" stroke="none"/>
-    <circle cx="226" cy="368" r="15" stroke="none"/>
-    <rect x="306" y="352" width="30" height="30" transform="rotate(-11 321 367)" stroke="none"/>
-    <path d="M396 348c7 13 22 10 28 26" stroke-width="9" stroke-linecap="round" fill="none"/>
-
-    <!-- Bottom row: extents end ~528 → ~12px to 540 -->
-    <circle cx="74" cy="508" r="10" stroke="none"/>
-    <path d="M142 492l13 15-13 15 13 15" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <path d="M240 488c9 14 26 11 31 28" stroke-width="10" stroke-linecap="round" fill="none"/>
-    <rect x="346" y="502" width="26" height="26" transform="rotate(7 359 515)" stroke="none"/>
-    <path d="M416 500h20v20" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <g transform="translate(4 4)" opacity="0.28" fill="#0f1848" stroke="#0f1848">
+    <!-- row 40 -->
+    <circle cx="64" cy="40" r="15" stroke="none"/>
+    <rect x="150" y="26" width="26" height="26" transform="rotate(10 163 39)" stroke="none"/>
+    <path d="M260 28c8 12 24 10 28 26s-12 20-6 34" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <path d="M380 28l12 14-12 14 12 14" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- row 120 -->
+    <path d="M48 108h22v22" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <rect x="142" y="108" width="8" height="22" transform="rotate(-14 146 119)" stroke="none"/>
+    <circle cx="230" cy="120" r="8" stroke="none"/>
+    <rect x="310" y="106" width="26" height="26" transform="rotate(-8 323 119)" stroke="none"/>
+    <path d="M400 106c-4 12 8 16 6 28" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <!-- row 200 -->
+    <path d="M80 176l12 14-12 14 12 14" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="180" cy="200" r="15" stroke="none"/>
+    <path d="M270 188h22v22" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <rect x="370" y="188" width="8" height="22" transform="rotate(12 374 199)" stroke="none"/>
+    <!-- row 280 -->
+    <rect x="50" y="266" width="24" height="24" transform="rotate(12 62 278)" stroke="none"/>
+    <path d="M138 264c9 12 24 9 28 24s-12 18-7 32" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <circle cx="260" cy="280" r="7" stroke="none"/>
+    <path d="M330 262l14 16-14 16 14 16" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="410" cy="278" r="12" stroke="none"/>
+    <!-- row 360 -->
+    <path d="M56 348h22v22" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <rect x="146" y="350" width="8" height="20" transform="rotate(16 150 360)" stroke="none"/>
+    <circle cx="226" cy="360" r="14" stroke="none"/>
+    <rect x="304" y="346" width="28" height="28" transform="rotate(-10 318 360)" stroke="none"/>
+    <path d="M392 348c6 12 20 9 26 24" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <!-- row 440 -->
+    <circle cx="72" cy="440" r="10" stroke="none"/>
+    <path d="M146 424l12 14-12 14 12 14" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M240 424c8 12 24 10 28 24" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <rect x="340" y="426" width="24" height="24" transform="rotate(6 352 438)" stroke="none"/>
+    <path d="M410 428h18v18" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   </g>
 
   <g fill="#213293" stroke="#213293">
-    <circle cx="70" cy="24" r="16" stroke="none"/>
-    <rect x="158" y="10" width="28" height="28" transform="rotate(11 172 24)" stroke="none"/>
-    <path d="M268 14c8 14 26 11 31 28s-13 22-6 36" stroke-width="10" stroke-linecap="round" fill="none"/>
-    <path d="M388 16l13 15-13 15 13 15" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="64" cy="40" r="15" stroke="none"/>
+    <rect x="150" y="26" width="26" height="26" transform="rotate(10 163 39)" stroke="none"/>
+    <path d="M260 28c8 12 24 10 28 26s-12 20-6 34" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <path d="M380 28l12 14-12 14 12 14" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 
-    <path d="M44 92h24v24" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <rect x="148" y="104" width="8" height="24" transform="rotate(-16 152 116)" stroke="none"/>
-    <circle cx="236" cy="110" r="8" stroke="none"/>
-    <rect x="316" y="94" width="28" height="28" transform="rotate(-8 330 108)" stroke="none"/>
-    <path d="M408 90c-5 13 9 17 6 31" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <path d="M48 108h22v22" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <rect x="142" y="108" width="8" height="22" transform="rotate(-14 146 119)" stroke="none"/>
+    <circle cx="230" cy="120" r="8" stroke="none"/>
+    <rect x="310" y="106" width="26" height="26" transform="rotate(-8 323 119)" stroke="none"/>
+    <path d="M400 106c-4 12 8 16 6 28" stroke-width="9" stroke-linecap="round" fill="none"/>
 
-    <path d="M84 174l13 16-13 16 13 16" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <circle cx="186" cy="192" r="16" stroke="none"/>
-    <path d="M276 172h24v24" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <rect x="376" y="186" width="8" height="24" transform="rotate(14 380 198)" stroke="none"/>
+    <path d="M80 176l12 14-12 14 12 14" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="180" cy="200" r="15" stroke="none"/>
+    <path d="M270 188h22v22" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <rect x="370" y="188" width="8" height="22" transform="rotate(12 374 199)" stroke="none"/>
 
-    <rect x="48" y="262" width="26" height="26" transform="rotate(14 61 275)" stroke="none"/>
-    <path d="M140 252c10 14 28 10 32 28s-14 20-8 36" stroke-width="10" stroke-linecap="round" fill="none"/>
-    <circle cx="266" cy="272" r="7" stroke="none"/>
-    <path d="M336 250l15 18-15 18 15 18" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <circle cx="416" cy="262" r="13" stroke="none"/>
+    <rect x="50" y="266" width="24" height="24" transform="rotate(12 62 278)" stroke="none"/>
+    <path d="M138 264c9 12 24 9 28 24s-12 18-7 32" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <circle cx="260" cy="280" r="7" stroke="none"/>
+    <path d="M330 262l14 16-14 16 14 16" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="410" cy="278" r="12" stroke="none"/>
 
-    <path d="M52 348h24v24" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <rect x="146" y="364" width="8" height="22" transform="rotate(18 150 375)" stroke="none"/>
-    <circle cx="226" cy="368" r="15" stroke="none"/>
-    <rect x="306" y="352" width="30" height="30" transform="rotate(-11 321 367)" stroke="none"/>
-    <path d="M396 348c7 13 22 10 28 26" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <path d="M56 348h22v22" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <rect x="146" y="350" width="8" height="20" transform="rotate(16 150 360)" stroke="none"/>
+    <circle cx="226" cy="360" r="14" stroke="none"/>
+    <rect x="304" y="346" width="28" height="28" transform="rotate(-10 318 360)" stroke="none"/>
+    <path d="M392 348c6 12 20 9 26 24" stroke-width="9" stroke-linecap="round" fill="none"/>
 
-    <circle cx="74" cy="508" r="10" stroke="none"/>
-    <path d="M142 492l13 15-13 15 13 15" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <path d="M240 488c9 14 26 11 31 28" stroke-width="10" stroke-linecap="round" fill="none"/>
-    <rect x="346" y="502" width="26" height="26" transform="rotate(7 359 515)" stroke="none"/>
-    <path d="M416 500h20v20" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="72" cy="440" r="10" stroke="none"/>
+    <path d="M146 424l12 14-12 14 12 14" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M240 424c8 12 24 10 28 24" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <rect x="340" y="426" width="24" height="24" transform="rotate(6 352 438)" stroke="none"/>
+    <path d="M410 428h18v18" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   </g>
 </svg>
