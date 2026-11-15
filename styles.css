@@ -207,49 +207,41 @@ img {
 /* Scoped to .exp-home; remove that class on <body> to disable. */
 
 .exp-home {
-  --content-col: min(22rem, 36vw);
   position: relative;
   isolation: isolate;
   overflow-x: clip;
 }
 
-/* Clear left content column — nav + brand never sit under the pattern */
+/*
+  Full-width top nav stays in its original place.
+  White + difference → cobalt-ish on mustard, mustard-ish on cobalt
+  (readable where text crosses the scrolling shapes).
+*/
 .exp-home .site-header {
   position: relative;
   z-index: 2;
-  max-width: var(--content-col);
-  width: 100%;
-  margin-inline: 0;
-  padding-inline: var(--space);
+  mix-blend-mode: difference;
+  color: #fff;
+}
+
+.exp-home .site-header .wordmark,
+.exp-home .site-header .nav-link {
+  color: #fff;
+}
+
+.exp-home .site-header .nav-link:hover {
+  color: #fff;
+  opacity: 1;
 }
 
 .exp-home .hero {
   position: relative;
   z-index: 2;
-  max-width: var(--content-col);
 }
 
 .exp-home .home-footer {
   /* No Etsy peek/link in this experiment */
   display: none;
-}
-
-@media (max-width: 720px) {
-  .exp-home {
-    --content-col: min(22rem, 92vw);
-  }
-
-  /* On small screens, park the band below the hero so text stays clear */
-  .exp-home .memphis-band {
-    inset: auto 0 0 0;
-    height: 42vh;
-    -webkit-mask-image: linear-gradient(
-      to top,
-      #000 55%,
-      transparent 100%
-    );
-    mask-image: linear-gradient(to top, #000 55%, transparent 100%);
-  }
 }
 
 .memphis-band {
@@ -259,21 +251,20 @@ img {
 .exp-home .memphis-band {
   display: block;
   position: absolute;
-  /* Start past the content column so shapes never cover brand/nav/CTA */
-  inset: 0 0 0 max(38%, calc(var(--content-col) + var(--space) + 1.5rem));
+  inset: 0 0 0 33.333%;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
-    #000 18%,
+    #000 16%,
     #000 100%
   );
   mask-image: linear-gradient(
     to right,
     transparent 0%,
-    #000 18%,
+    #000 16%,
     #000 100%
   );
 }
@@ -282,18 +273,29 @@ img {
 .memphis-band__track {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0;
   width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  font-size: 0;
   will-change: transform;
 }
 
 .memphis-band__tile {
   flex: 0 0 auto;
+  display: block;
   width: 100%;
-  aspect-ratio: 480 / 720;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  /* Matches SVG 480×560 — edge padding tuned so seam ≈ interior spacing */
+  aspect-ratio: 480 / 560;
   background-image: url("assets/brand/memphis-squiggle-cobalt.svg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  background-position: center;
+  background-position: 0 0;
   opacity: 0.92;
 }
 
