@@ -331,6 +331,14 @@ button.nav-link {
   visibility: visible;
 }
 
+/* Taller than wide: hide the scroll band and its top fade.
+   Square (1:1) and landscape keep Memphis / graph / dots. */
+@media (aspect-ratio < 1 / 1) {
+  .exp-home .pattern-band {
+    display: none;
+  }
+}
+
 .pattern-band__layer {
   position: absolute;
   inset: 0;
