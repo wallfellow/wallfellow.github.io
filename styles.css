@@ -252,6 +252,7 @@ button.nav-link {
   Full-width top nav stays in its original place.
   Header Wallfellow + pieces: solid cobalt on mustard bar
   that covers the scrolling pattern behind the top strip.
+  Bar is 100vw edge-to-edge (breaks out of any max-width).
 */
 .exp-home .site-header {
   position: relative;
@@ -259,6 +260,10 @@ button.nav-link {
   mix-blend-mode: normal;
   color: #213293;
   background: #fbb323;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
 }
 
 .exp-home .site-header .wordmark,
