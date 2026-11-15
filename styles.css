@@ -291,7 +291,8 @@ img {
 }
 
 .exp-home[data-pattern="memphis"] .pattern-band__layer--memphis,
-.exp-home[data-pattern="graph"] .pattern-band__layer--graph {
+.exp-home[data-pattern="graph"] .pattern-band__layer--graph,
+.exp-home[data-pattern="dots"] .pattern-band__layer--dots {
   opacity: 1;
 }
 
@@ -329,11 +330,18 @@ img {
 }
 
 .pattern-band__tile--graph {
-  /* SVG 200×200 seamless graph paper; one tile = band width */
+  /* SVG 200×200 seamless graph paper; vivid cobalt, full strength */
   aspect-ratio: 1 / 1;
   background-image: url("assets/brand/graph-paper-cobalt.svg");
   background-size: 100% 100%;
-  opacity: 0.85;
+  opacity: 1;
+}
+
+.pattern-band__tile--dots {
+  aspect-ratio: 1 / 1;
+  background-image: url("assets/brand/dot-grid-cobalt.svg");
+  background-size: 100% 100%;
+  opacity: 1;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -343,6 +351,10 @@ img {
 
   .exp-home .pattern-band__track--graph {
     animation-duration: 56s;
+  }
+
+  .exp-home .pattern-band__track--dots {
+    animation-duration: 64s;
   }
 }
 

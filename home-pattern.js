@@ -3,16 +3,30 @@
   if (!body.classList.contains("exp-home")) return;
 
   const decorBtn = document.querySelector(".nav-link--decor");
+  const cycle = ["memphis", "graph", "dots"];
 
   const setPattern = (name) => {
-    const next = name === "graph" ? "graph" : "memphis";
+    const next = cycle.includes(name) ? name : "memphis";
     body.dataset.pattern = next;
     if (decorBtn) {
-      decorBtn.setAttribute("aria-pressed", next === "graph" ? "true" : "false");
+      decorBtn.setAttribute("aria-pressed", next === "memphis" ? "false" : "true");
     }
   };
 
+  const nextDecor = () => {
+    const current = body.dataset.pattern || "memphis";
+    const i = cycle.indexOf(current);
+    return cycle[(i + 1) % cycle.length];
+  };
+
   document.addEventListener("click", (event) => {
+    const decor = event.target.closest("[data-pattern-cycle]");
+    if (decor && body.contains(decor)) {
+      event.preventDefault();
+      setPattern(nextDecor());
+      return;
+    }
+
     const control = event.target.closest("[data-pattern-set]");
     if (!control || !body.contains(control)) return;
 
@@ -21,10 +35,7 @@
 
     setPattern(next);
 
-    // Stay on the homepage for Decor + wordmark; let Pieces/CTA navigate.
-    if (control.matches("button.nav-link--decor")) {
-      event.preventDefault();
-    } else if (control.matches("a.wordmark")) {
+    if (control.matches("a.wordmark")) {
       event.preventDefault();
     }
   });

@@ -20,7 +20,8 @@
     Experimental homepage flourish (HU-45):
     Toggle off by removing class "exp-home" from <body>
     (hides the right scroll band; restores footer).
-    Decor nav fades the band between Memphis and graph paper.
+    Decor cycles: Memphis → graph paper → dot grid → Memphis (fade).
+    Home / Pieces restore Memphis.
   -->
   <body class="home exp-home" data-pattern="memphis">
     <div class="pattern-band" aria-hidden="true">
@@ -36,6 +37,12 @@
           <div class="pattern-band__tile pattern-band__tile--graph"></div>
         </div>
       </div>
+      <div class="pattern-band__layer pattern-band__layer--dots">
+        <div class="pattern-band__track pattern-band__track--dots">
+          <div class="pattern-band__tile pattern-band__tile--dots"></div>
+          <div class="pattern-band__tile pattern-band__tile--dots"></div>
+        </div>
+      </div>
     </div>
 
     <header class="site-header">
@@ -45,8 +52,9 @@
         <button
           type="button"
           class="nav-link nav-link--decor"
-          data-pattern-set="graph"
+          data-pattern-cycle
           aria-pressed="false"
+          aria-label="Cycle decor pattern"
         >
           Decor
         </button>
