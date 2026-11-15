@@ -356,17 +356,19 @@ button.nav-link {
 }
 
 .pattern-band__tile--graph {
-  /* SVG 200×200 seamless graph paper; vivid cobalt, full strength */
+  /* Half previous cell size: tile at 50% and repeat */
   aspect-ratio: 1 / 1;
   background-image: url("assets/brand/graph-paper-cobalt.svg");
-  background-size: 100% 100%;
+  background-repeat: repeat;
+  background-size: 50% 50%;
   opacity: 1;
 }
 
 .pattern-band__tile--dots {
   aspect-ratio: 1 / 1;
   background-image: url("assets/brand/dot-grid-cobalt.svg");
-  background-size: 100% 100%;
+  background-repeat: repeat;
+  background-size: 50% 50%;
   opacity: 1;
 }
 

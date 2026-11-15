@@ -1,46 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480" fill="none">
   <!--
-    Seamless Memphis tile — cobalt #213293 on transparent.
-    6 equally spaced rows (period 80). Centers at 40,120,200,280,360,440:
-    edge clearance = half period, so the tiled seam equals interior row spacing.
+    Seamless Memphis tile — cobalt #213293 on transparent (no drop shadows).
+    6 equally spaced rows (period 80). Centers at 40,120,200,280,360,440.
   -->
-  <g transform="translate(4 4)" opacity="0.28" fill="#0f1848" stroke="#0f1848">
-    <!-- row 40 -->
-    <circle cx="64" cy="40" r="15" stroke="none"/>
-    <rect x="150" y="26" width="26" height="26" transform="rotate(10 163 39)" stroke="none"/>
-    <path d="M260 28c8 12 24 10 28 26s-12 20-6 34" stroke-width="10" stroke-linecap="round" fill="none"/>
-    <path d="M380 28l12 14-12 14 12 14" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <!-- row 120 -->
-    <path d="M48 108h22v22" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <rect x="142" y="108" width="8" height="22" transform="rotate(-14 146 119)" stroke="none"/>
-    <circle cx="230" cy="120" r="8" stroke="none"/>
-    <rect x="310" y="106" width="26" height="26" transform="rotate(-8 323 119)" stroke="none"/>
-    <path d="M400 106c-4 12 8 16 6 28" stroke-width="9" stroke-linecap="round" fill="none"/>
-    <!-- row 200 -->
-    <path d="M80 176l12 14-12 14 12 14" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <circle cx="180" cy="200" r="15" stroke="none"/>
-    <path d="M270 188h22v22" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <rect x="370" y="188" width="8" height="22" transform="rotate(12 374 199)" stroke="none"/>
-    <!-- row 280 -->
-    <rect x="50" y="266" width="24" height="24" transform="rotate(12 62 278)" stroke="none"/>
-    <path d="M138 264c9 12 24 9 28 24s-12 18-7 32" stroke-width="9" stroke-linecap="round" fill="none"/>
-    <circle cx="260" cy="280" r="7" stroke="none"/>
-    <path d="M330 262l14 16-14 16 14 16" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <circle cx="410" cy="278" r="12" stroke="none"/>
-    <!-- row 360 -->
-    <path d="M56 348h22v22" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <rect x="146" y="350" width="8" height="20" transform="rotate(16 150 360)" stroke="none"/>
-    <circle cx="226" cy="360" r="14" stroke="none"/>
-    <rect x="304" y="346" width="28" height="28" transform="rotate(-10 318 360)" stroke="none"/>
-    <path d="M392 348c6 12 20 9 26 24" stroke-width="9" stroke-linecap="round" fill="none"/>
-    <!-- row 440 -->
-    <circle cx="72" cy="440" r="10" stroke="none"/>
-    <path d="M146 424l12 14-12 14 12 14" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <path d="M240 424c8 12 24 10 28 24" stroke-width="10" stroke-linecap="round" fill="none"/>
-    <rect x="340" y="426" width="24" height="24" transform="rotate(6 352 438)" stroke="none"/>
-    <path d="M410 428h18v18" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  </g>
-
   <g fill="#213293" stroke="#213293">
     <circle cx="64" cy="40" r="15" stroke="none"/>
     <rect x="150" y="26" width="26" height="26" transform="rotate(10 163 39)" stroke="none"/>
