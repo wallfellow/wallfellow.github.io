@@ -280,6 +280,9 @@ button.nav-link {
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.85s ease, visibility 0.85s ease;
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -294,6 +297,14 @@ button.nav-link {
   );
 }
 
+/* Band only shows for active pattern modes — off clears it completely */
+.exp-home[data-pattern="memphis"] .pattern-band,
+.exp-home[data-pattern="graph"] .pattern-band,
+.exp-home[data-pattern="dots"] .pattern-band {
+  opacity: 1;
+  visibility: visible;
+}
+
 .pattern-band__layer {
   position: absolute;
   inset: 0;
@@ -305,6 +316,10 @@ button.nav-link {
 .exp-home[data-pattern="graph"] .pattern-band__layer--graph,
 .exp-home[data-pattern="dots"] .pattern-band__layer--dots {
   opacity: 1;
+}
+
+.exp-home[data-pattern="off"] .pattern-band__track {
+  animation: none !important;
 }
 
 /* Duplicated strip: two identical tiles; animate exactly -50% for a seamless loop */
