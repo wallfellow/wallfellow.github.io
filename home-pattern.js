@@ -3,21 +3,24 @@
   if (!body.classList.contains("exp-home")) return;
 
   const decorBtn = document.querySelector(".nav-link--decor");
-  const cycle = ["memphis", "graph", "dots"];
+  const cycle = ["off", "memphis", "graph", "dots"];
 
   const setPattern = (name) => {
-    const next = cycle.includes(name) ? name : "memphis";
+    const next = cycle.includes(name) ? name : "off";
     body.dataset.pattern = next;
     if (decorBtn) {
-      decorBtn.setAttribute("aria-pressed", next === "memphis" ? "false" : "true");
+      decorBtn.setAttribute("aria-pressed", next === "off" ? "false" : "true");
     }
   };
 
   const nextDecor = () => {
-    const current = body.dataset.pattern || "memphis";
-    const i = cycle.indexOf(current);
+    const current = body.dataset.pattern || "off";
+    const i = Math.max(0, cycle.indexOf(current));
     return cycle[(i + 1) % cycle.length];
   };
+
+  // Ensure default matches markup.
+  setPattern(body.dataset.pattern || "off");
 
   document.addEventListener("click", (event) => {
     const decor = event.target.closest("[data-pattern-cycle]");
