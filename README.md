@@ -15,13 +15,13 @@ Then open [http://127.0.0.1:8765/](http://127.0.0.1:8765/).
 
 - `index.html` — homepage
 - `pieces/` — catalog index + six placeholder product pages
-- `playlists/` — six playlist slots (placeholder embeds)
+- `playlists/` — one playlist slot (placeholder embed)
 - `about/` — short shop about
 - `styles.css` — shared styles + brand CSS variables
 
 ## Playlists
 
-The players in `playlists/` are placeholders. No Wallfellow playlist URL was in the site. To swap one in, replace that iframe’s `src="about:blank"` with an embed URL such as `https://open.spotify.com/embed/playlist/YOUR_ID?utm_source=generator`. The page shows the player once `src` is no longer `about:blank`. The frame is 152px tall (a compact player); raise `.embed-slot iframe` in `styles.css` for a taller embed.
+The player in `playlists/` is a placeholder. No Wallfellow playlist URL was in the site. To swap it in, replace that iframe’s `src="about:blank"` with an embed URL such as `https://open.spotify.com/embed/playlist/YOUR_ID?utm_source=generator`. The page shows the player once `src` is no longer `about:blank`. The frame is 152px tall (a compact player); raise `.embed-slot iframe` in `styles.css` for a taller embed.
 
 ## Placeholder pieces
 
