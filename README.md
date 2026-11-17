@@ -15,13 +15,13 @@ Then open [http://127.0.0.1:8765/](http://127.0.0.1:8765/).
 
 - `index.html` — homepage
 - `pieces/` — catalog index + six placeholder product pages
-- `playlists/` — one playlist slot (placeholder embed)
+- `playlists/` — Wallfellow Thanksgiving (November 2026)
 - `about/` — short shop about
 - `styles.css` — shared styles + brand CSS variables
 
 ## Playlists
 
-The player in `playlists/` is a placeholder. No Wallfellow playlist URL was in the site. To swap it in, replace that iframe’s `src="about:blank"` with an embed URL such as `https://open.spotify.com/embed/playlist/YOUR_ID?utm_source=generator`. The page shows the player once `src` is no longer `about:blank`. The frame is 152px tall (a compact player); raise `.embed-slot iframe` in `styles.css` for a taller embed.
+`playlists/` embeds [Wallfellow Thanksgiving](https://open.spotify.com/playlist/7llLSOZeUAIC7IgCAZxfHd), the November 2026 playlist. The frame is 152px tall (a compact player).
 
 ## Placeholder pieces
 
