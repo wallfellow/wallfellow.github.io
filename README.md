@@ -14,8 +14,16 @@ Then open [http://127.0.0.1:8765/](http://127.0.0.1:8765/).
 ## Layout
 
 - `index.html` — homepage
-- `pieces/` — catalog index + six placeholder product pages
+- `pieces/` — catalog index, one listed piece, and six placeholder product pages
 - `styles.css` — shared styles + brand CSS variables
+
+## Listed
+
+| Name | Slug | SKU | Type |
+|------|------|-----|------|
+| Vintage Konica 35mm Film Camera | `konica` | WF-S02 | Secondary, not a wall piece |
+
+No price, dimensions, or photograph yet.
 
 ## Placeholder pieces
 
