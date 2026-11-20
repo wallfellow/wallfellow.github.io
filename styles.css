@@ -598,6 +598,24 @@ button.nav-link {
   }
 }
 
+.product-figure {
+  margin: 0;
+}
+
+.product-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: var(--cream);
+}
+
+.product-caption {
+  margin: 0.7rem 0 0;
+  max-width: 28rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
 .product-visual {
   aspect-ratio: 4 / 5;
   background: var(--mustard);

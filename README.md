@@ -14,16 +14,19 @@ Then open [http://127.0.0.1:8765/](http://127.0.0.1:8765/).
 ## Layout
 
 - `index.html` — homepage
-- `pieces/` — catalog index, one listed piece, and six placeholder product pages
+- `pieces/` — catalog index, four listed pieces, and six placeholder product pages
 - `styles.css` — shared styles + brand CSS variables
 
 ## Listed
 
 | Name | Slug | SKU | Type |
 |------|------|-----|------|
-| Vintage Konica 35mm Film Camera | `konica` | WF-S02 | Secondary, not a wall piece |
+| Vintage Konica 35mm Film Camera | `konica` | WF-S02 | shelf bits |
+| Midcentury Ceramic Novelty Ashtray | `ashtray` | WF-S01 | shelf bits |
+| Coffee | `coffee` | WF-02 | Framed original |
+| 2x3 | `2x3` | WF-01 | Framed original pair |
 
-No price, dimensions, or photograph yet.
+Suggested prices are marked on the pages and still need a check. Each listed piece uses a saved stand-in photo, captioned as not the item for sale. Dimensions are omitted.
 
 ## Placeholder pieces
 
