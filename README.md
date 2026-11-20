@@ -1,6 +1,6 @@
 # Wallfellow site
 
-Minimal static brand presence for **Wallfellow** (“Hang it up”).
+Minimal static brand presence for **Wallfellow** (“Let it hang”).
 
 ## Open locally
 
